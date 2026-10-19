@@ -32,13 +32,13 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            padding: 20px;
+            padding: 16px;
         }
 
         /* Bekas Kad Utama */
         .card {
             width: 100%;
-            max-width: 450px;
+            max-width: 430px;
             background: #ffffff;
             border-radius: 20px;
             box-shadow: 0 10px 40px rgba(61, 90, 76, 0.08);
@@ -81,7 +81,7 @@
             font-size: 0.95rem;
             line-height: 1.6;
             color: var(--text-muted);
-            margin-bottom: 28px;
+            margin-bottom: 24px;
         }
 
         /* Susunan Kaunter Masa (Countdown) */
@@ -115,19 +115,19 @@
             margin-top: 4px;
         }
 
-        /* Sistem Butang / Navigasi - Dioptimumkan untuk Peranti Mudah Alih */
+        /* Sistem Butang / Navigasi Mudah Alih */
         .btn {
             display: block;
             width: 100%;
-            padding: 16px;
-            margin-bottom: 12px;
-            border-radius: 10px;
-            font-size: 0.95rem;
+            padding: 18px 16px; 
+            margin-bottom: 14px;
+            border-radius: 12px;
+            font-size: 1rem;
             font-weight: 600;
             text-decoration: none;
             text-align: center;
-            transition: all 0.2s ease;
             box-sizing: border-box;
+            cursor: pointer;
         }
 
         .btn-rsvp {
@@ -136,38 +136,16 @@
             box-shadow: 0 4px 15px rgba(197, 160, 40, 0.2);
         }
 
-        .btn-rsvp:hover {
-            background-color: #B29020;
-        }
-
         .btn-maps {
             background-color: transparent;
             color: var(--primary);
-            border: 1.5px solid var(--primary);
-        }
-
-        .btn-maps:hover {
-            background-color: #F2F5F3;
-        }
-
-        .btn-waze {
-            background-color: transparent;
-            color: #33a9dc;
-            border: 1.5px solid #33a9dc;
-        }
-
-        .btn-waze:hover {
-            background-color: #F0F9FD;
+            border: 2px solid var(--primary);
         }
 
         .btn-whatsapp {
             background-color: transparent;
             color: #25D366;
-            border: 1.5px solid #25D366;
-        }
-
-        .btn-whatsapp:hover {
-            background-color: #F0FDF4;
+            border: 2px solid #25D366;
         }
 
         .footer-note {
@@ -181,12 +159,10 @@
 <body>
 
     <div class="card">
-        <!-- RUANGAN POSTER GAMBAR KELUARGA/RUMAH -->
         <div class="card-image-box">
             <img src="poster.jpg" alt="Poster Majlis Doa Selamat">
         </div>
 
-        <!-- MAKLUMAT JEMPUTAN INTERAKTIF -->
         <div class="card-content">
             <h1>Majlis Doa Selamat</h1>
             
@@ -214,25 +190,14 @@
                 </div>
             </div>
 
-            <!-- BUTANG RSVP DENGAN LINK PINTAR GOOGLE FORM ANDA -->
-            <a href="https://forms.gle" target="_blank" class="btn btn-rsvp">
-                Sahkan Kehadiran
-            </a>
+            <!-- BUTANG RSVP -->
+            <a href="https://forms.gle" target="_blank" class="btn btn-rsvp">Sahkan Kehadiran</a>
 
-            <!-- GOOGLE MAPS -->
-            <a href="https://google.com" target="_blank" class="btn btn-maps">
-                Navigasi Google Maps
-            </a>
-
-            <!-- WAZE -->
-            <a href="https://waze.com" target="_blank" class="btn btn-waze">
-                Navigasi Waze
-            </a>
+            <!-- GOOGLE MAPS (Pautan pintas rasmi anda yang telah dikemaskini) -->
+            <a href="https://goo.gl" target="_blank" class="btn btn-maps">Navigasi Lokasi Rumah</a>
 
             <!-- BUTANG WHATSAPP -->
-            <a href="https://wa.me" target="_blank" class="btn btn-whatsapp">
-                Hubungi Tuan Rumah
-            </a>
+            <a href="https://wa.me" target="_blank" class="btn btn-whatsapp">Hubungi Tuan Rumah</a>
 
             <div class="footer-note">
                 Terima Kasih
@@ -242,7 +207,6 @@
 
     <!-- LOGIK JAVASCRIPT COUNTDOWN -->
     <script>
-        // Menggunakan format ISO Date-Time yang stabil untuk mengelakkan isu pepijat pada iOS/Safari
         const targetDate = new Date("2026-11-08T17:30:00").getTime(); 
 
         const runCountdown = setInterval(function() {
@@ -265,9 +229,6 @@
             }
         }, 1000);
     </script>
-
-</body>
-</html>
 
 </body>
 </html>
