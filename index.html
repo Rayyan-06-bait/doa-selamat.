@@ -151,11 +151,21 @@
             background-color: #F2F5F3;
         }
 
+        .btn-waze {
+            background-color: transparent;
+            color: #33a9dc;
+            border: 1.5px solid #33a9dc;
+        }
+
+        .btn-waze:hover {
+            background-color: #F0F9FD;
+        }
+
         .footer-note {
-            font-size: 0.8rem;
+            font-size: 0.9rem;
             color: var(--text-muted);
             margin-top: 24px;
-            font-style: italic;
+            font-weight: 500;
         }
     </style>
 </head>
@@ -164,7 +174,6 @@
     <div class="card">
         <!-- RUANGAN POSTER GAMBAR KELUARGA/RUMAH -->
         <div class="card-image-box">
-            <!-- Kod ini membaca fail 'poster.jpg' yang anda muat naik ke GitHub -->
             <img src="poster.jpg" alt="Poster Majlis Doa Selamat" onerror="this.style.display='none';">
         </div>
 
@@ -198,8 +207,8 @@
 
             <!-- BUTANG 1: ISI GOOGLE FORM -->
             <!-- GANTIKAN 'PAUTAN_GOOGLE_FORM_ANDA' dengan link pendek dari Google Form anda -->
-            <a href="https://forms.gle/2Nuct59uMrc9tQCPA" target="_blank" class="btn btn-rsvp">
-                ✍️ Sahkan Kehadiran (RSVP)
+            <a href="https://forms.gle/8MREi5r8TrSbUci8A" target="_blank" class="btn btn-rsvp">
+                ✍️ Sahkan Kehadiran
             </a>
 
             <!-- BUTANG 2: GOOGLE MAPS LOKASI RUMAH ANDA -->
@@ -207,8 +216,13 @@
                 📍 Navigasi Google Maps
             </a>
 
+            <!-- BUTANG 3: WAZE LOKASI RUMAH ANDA -->
+            <a href="https://waze.com" target="_blank" class="btn btn-waze">
+                🚙 Navigasi Waze
+            </a>
+
             <div class="footer-note">
-                Terima kasih atas doa dan pengesahan kehadiran anda.
+                Terima Kasih
             </div>
         </div>
     </div>
@@ -228,13 +242,12 @@
             const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
-            // Masukkan ke dalam HTML (tambah angka 0 di depan jika bawah 10)
+            // Masukkan ke dalam HTML
             document.getElementById("days").innerText = days < 10 ? "0" + days : days;
             document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
             document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
             document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
 
-            // Jika tarikh sudah lepas
             if (difference < 0) {
                 clearInterval(runCountdown);
                 document.querySelector(".countdown").innerHTML = "<div style='color: white; font-size: 0.9rem; width: 100%; text-align: center; font-weight: 500;'>Majlis Sedang Berlangsung / Telah Selesai</div>";
