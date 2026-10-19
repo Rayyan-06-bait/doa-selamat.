@@ -81,17 +81,40 @@
             font-size: 0.95rem;
             line-height: 1.6;
             color: var(--text-muted);
-            margin-bottom: 28px;
+            margin-bottom: 24px;
         }
 
-        /* Kaunter Masa (Countdown) */
+        /* Seksyen Atur Cara */
+        .tentative-box {
+            background-color: #F4F6F5;
+            border-left: 3px solid var(--primary);
+            padding: 16px;
+            border-radius: 8px;
+            text-align: left;
+            margin-bottom: 24px;
+            font-size: 0.9rem;
+        }
+
+        .tentative-title {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .tentative-item {
+            margin-bottom: 4px;
+            color: #4A5D54;
+        }
+
         .countdown {
             background-color: var(--primary);
             padding: 16px;
             border-radius: 14px;
             display: flex;
             justify-content: space-around;
-            margin-bottom: 28px;
+            margin-bottom: 24px;
             border: 1px solid var(--accent);
         }
 
@@ -161,6 +184,16 @@
             background-color: #F0F9FD;
         }
 
+        .btn-whatsapp {
+            background-color: transparent;
+            color: #25D366;
+            border: 1.5px solid #25D366;
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #F0FDF4;
+        }
+
         .footer-note {
             font-size: 0.9rem;
             color: var(--text-muted);
@@ -185,7 +218,14 @@
                 Assalamu'alaikum Wr. Wb. Dengan penuh rasa kesyukuran, kami menjemput Tuan / Puan ke majlis kami yang akan diadakan pada <strong>8 November 2026</strong>.
             </p>
 
-            <!-- Penghitung Hari (Countdown) -->
+            <!-- Seksyen Atur Cara -->
+            <div class="tentative-box">
+                <div class="tentative-title">🗓️ Atur Cara Majlis</div>
+                <div class="tentative-item"><strong>5:30 Petang</strong> : Ketibaan Para Tetamu</div>
+                <div class="tentative-item"><strong>6:00 Petang</strong> : Bacaan Yasin & Doa Selamat</div>
+                <div class="tentative-item"><strong>6:45 Petang</strong> : Jamuan Makan Kenduri</div>
+            </div>
+
             <div class="countdown">
                 <div class="time-segment">
                     <div class="time-number" id="days">00</div>
@@ -205,20 +245,24 @@
                 </div>
             </div>
 
-            <!-- BUTANG 1: ISI GOOGLE FORM -->
-            <!-- GANTIKAN 'PAUTAN_GOOGLE_FORM_ANDA' dengan link pendek dari Google Form anda -->
-            <a href="https://forms.gle/8MREi5r8TrSbUci8A" target="_blank" class="btn btn-rsvp">
+            <!-- BUTANG RSVP DENGAN LINK PINTAR GOOGLE FORM ANDA -->
+            <a href="https://forms.gle" target="_blank" class="btn btn-rsvp">
                 ✍️ Sahkan Kehadiran
             </a>
 
-            <!-- BUTANG 2: GOOGLE MAPS LOKASI RUMAH ANDA -->
+            <!-- GOOGLE MAPS -->
             <a href="https://google.com" target="_blank" class="btn btn-maps">
                 📍 Navigasi Google Maps
             </a>
 
-            <!-- BUTANG 3: WAZE LOKASI RUMAH ANDA -->
+            <!-- WAZE -->
             <a href="https://waze.com" target="_blank" class="btn btn-waze">
                 🚙 Navigasi Waze
+            </a>
+
+            <!-- BUTANG WHATSAPP -->
+            <a href="https://wa.me" target="_blank" class="btn btn-whatsapp">
+                💬 Hubungi Tuan Rumah
             </a>
 
             <div class="footer-note">
@@ -227,22 +271,19 @@
         </div>
     </div>
 
-    <!-- LOGIK JAVASCRIPT: COUNTDOWN MATEMATIK TEPAT -->
+    <!-- LOGIK JAVASCRIPT COUNTDOWN -->
     <script>
-        // Sasaran tarikh: 8 November 2026
-        const targetDate = new Date("Nov 8, 2026 00:00:00").getTime();
+        const targetDate = new Date("Nov 8, 2026 17:30:00").getTime(); 
 
         const runCountdown = setInterval(function() {
             const currentTime = new Date().getTime();
             const difference = targetDate - currentTime;
 
-            // Kiraan hari, jam, minit, saat
             const days = Math.floor(difference / (1000 * 60 * 60 * 24));
             const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
-            // Masukkan ke dalam HTML
             document.getElementById("days").innerText = days < 10 ? "0" + days : days;
             document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
             document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
