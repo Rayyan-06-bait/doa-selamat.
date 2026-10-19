@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jemputan Majlis Doa Selamat</title>
+    <!-- Membawa masuk font Google (Playfair Display & Inter) untuk presentation yang kemas -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #3D5A4C;    /* Hijau Zaitun Premium (Olive Green) */
+            --accent: #C5A028;     /* Emas Klasik */
+            --bg-color: #FBF9F6;   /* Putih Krim Lembut */
+            --text-main: #2C3E35;  /* Hijau Gelap untuk teks */
+            --text-muted: #6B7C73;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* Bekas Kad Utama */
+        .card {
+            width: 100%;
+            max-width: 450px;
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(61, 90, 76, 0.08);
+            border: 1px solid rgba(197, 160, 40, 0.2);
+            overflow: hidden;
+            text-align: center;
+        }
+
+        /* Bahagian Atas / Header Gambar */
+        .card-image-box {
+            width: 100%;
+            position: relative;
+            background-color: #E8ECE9;
+            /* Nisbah 9:16 untuk poster menegak */
+            aspect-ratio: 9 / 16; 
+        }
+
+        .card-image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Bahagian Kandungan Bawah */
+        .card-content {
+            padding: 32px 24px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+        }
+
+        .intro-text {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--text-muted);
+            margin-bottom: 28px;
+        }
+
+        /* Kaunter Masa (Countdown) */
+        .countdown {
+            background-color: var(--primary);
+            padding: 16px;
+            border-radius: 14px;
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 28px;
+            border: 1px solid var(--accent);
+        }
+
+        .time-segment {
+            text-align: center;
+            color: #ffffff;
+            flex: 1;
+        }
+
+        .time-number {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        .time-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #DDE4E1;
+            margin-top: 4px;
+        }
+
+        /* Sistem Butang / Navigasi */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 16px;
+            margin-bottom: 12px;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .btn-rsvp {
+            background-color: var(--accent);
+            color: #ffffff;
+            box-shadow: 0 4px 15px rgba(197, 160, 40, 0.2);
+        }
+
+        .btn-rsvp:hover {
+            background-color: #B29020;
+            transform: translateY(-1px);
+        }
+
+        .btn-maps {
+            background-color: transparent;
+            color: var(--primary);
+            border: 1.5px solid var(--primary);
+        }
+
+        .btn-maps:hover {
+            background-color: #F2F5F3;
+        }
+
+        .footer-note {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 24px;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <!-- RUANGAN POSTER GAMBAR KELUARGA/RUMAH -->
+        <div class="card-image-box">
+            <!-- Kod ini membaca fail 'poster.jpg' yang anda muat naik ke GitHub -->
+            <img src="poster.jpg" alt="Poster Majlis Doa Selamat" onerror="this.style.display='none';">
+        </div>
+
+        <!-- MAKLUMAT JEMPUTAN INTERAKTIF -->
+        <div class="card-content">
+            <h1>Majlis Doa Selamat</h1>
+            
+            <p class="intro-text">
+                Assalamu'alaikum Wr. Wb. Dengan penuh rasa kesyukuran, kami menjemput Tuan / Puan ke majlis kami yang akan diadakan pada <strong>8 November 2026</strong>.
+            </p>
+
+            <!-- Penghitung Hari (Countdown) -->
+            <div class="countdown">
+                <div class="time-segment">
+                    <div class="time-number" id="days">00</div>
+                    <div class="time-label">Hari</div>
+                </div>
+                <div class="time-segment">
+                    <div class="time-number" id="hours">00</div>
+                    <div class="time-label">Jam</div>
+                </div>
+                <div class="time-segment">
+                    <div class="time-number" id="minutes">00</div>
+                    <div class="time-label">Minit</div>
+                </div>
+                <div class="time-segment">
+                    <div class="time-number" id="seconds">00</div>
+                    <div class="time-label">Saat</div>
+                </div>
+            </div>
+
+            <!-- BUTANG 1: ISI GOOGLE FORM -->
+            <!-- GANTIKAN 'PAUTAN_GOOGLE_FORM_ANDA' dengan link pendek dari Google Form anda -->
+            <a href="https://forms.gle/2Nuct59uMrc9tQCPA" target="_blank" class="btn btn-rsvp">
+                ✍️ Sahkan Kehadiran (RSVP)
+            </a>
+
+            <!-- BUTANG 2: GOOGLE MAPS LOKASI RUMAH ANDA -->
+            <a href="https://google.com" target="_blank" class="btn btn-maps">
+                📍 Navigasi Google Maps
+            </a>
+
+            <div class="footer-note">
+                Terima kasih atas doa dan pengesahan kehadiran anda.
+            </div>
+        </div>
+    </div>
+
+    <!-- LOGIK JAVASCRIPT: COUNTDOWN MATEMATIK TEPAT -->
+    <script>
+        // Sasaran tarikh: 8 November 2026
+        const targetDate = new Date("Nov 8, 2026 00:00:00").getTime();
+
+        const runCountdown = setInterval(function() {
+            const currentTime = new Date().getTime();
+            const difference = targetDate - currentTime;
+
+            // Kiraan hari, jam, minit, saat
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+            // Masukkan ke dalam HTML (tambah angka 0 di depan jika bawah 10)
+            document.getElementById("days").innerText = days < 10 ? "0" + days : days;
+            document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
+            document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
+            document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
+
+            // Jika tarikh sudah lepas
+            if (difference < 0) {
+                clearInterval(runCountdown);
+                document.querySelector(".countdown").innerHTML = "<div style='color: white; font-size: 0.9rem; width: 100%; text-align: center; font-weight: 500;'>Majlis Sedang Berlangsung / Telah Selesai</div>";
+            }
+        }, 1000);
+    </script>
+
+</body>
+</html>
