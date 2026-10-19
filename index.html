@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jemputan Majlis Doa Selamat</title>
-    <!-- Membawa masuk font Google (Playfair Display & Inter) untuk presentation yang kemas -->
+    <!-- Membawa masuk font Google (Amiri untuk Jawi, Playfair & Inter untuk Rumi) -->
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://googleapis.com/css2?family=Amiri:ital@0;1&family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     
     <style>
         :root {
@@ -68,12 +68,22 @@
             padding: 32px 24px;
         }
 
+        /* Gaya Khas untuk Tulisan Jawi */
+        .jawi-title {
+            font-family: 'Amiri', serif;
+            font-size: 2.2rem;
+            color: var(--accent);
+            margin-bottom: 2px;
+            direction: rtl;
+            line-height: 1.2;
+        }
+
         h1 {
             font-family: 'Playfair Display', serif;
             font-weight: 600;
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             color: var(--primary);
-            margin-bottom: 12px;
+            margin-bottom: 14px;
             letter-spacing: 0.5px;
         }
 
@@ -91,7 +101,7 @@
             border-radius: 14px;
             display: flex;
             justify-content: space-around;
-            margin-bottom: 28px;
+            margin-bottom: 24px;
             border: 1px solid var(--accent);
         }
 
@@ -115,43 +125,18 @@
             margin-top: 4px;
         }
 
-        /* Sistem Butang Mudah Alih */
-        .btn {
-            display: block;
-            width: 100%;
-            padding: 18px 16px; 
-            margin-bottom: 14px;
-            border-radius: 12px;
-            font-size: 1rem;
-            font-weight: 600;
-            text-decoration: none;
-            text-align: center;
-            box-sizing: border-box;
-            cursor: pointer;
-        }
-
-        .btn-rsvp {
-            background-color: var(--accent);
-            color: #ffffff;
-            box-shadow: 0 4px 15px rgba(197, 160, 40, 0.2);
-        }
-
-        .btn-maps {
-            background-color: transparent;
+        .footer-note-jawi {
+            font-family: 'Amiri', serif;
+            font-size: 1.5rem;
             color: var(--primary);
-            border: 2px solid var(--primary);
+            margin-top: 20px;
+            direction: rtl;
         }
 
-        .btn-whatsapp {
-            background-color: transparent;
-            color: #25D366;
-            border: 2px solid #25D366;
-        }
-
-        .footer-note {
-            font-size: 0.9rem;
+        .footer-note-rumi {
+            font-size: 0.85rem;
             color: var(--text-muted);
-            margin-top: 24px;
+            margin-top: 2px;
             font-weight: 500;
         }
     </style>
@@ -166,6 +151,8 @@
 
         <!-- MAKLUMAT JEMPUTAN INTERAKTIF -->
         <div class="card-content">
+            <!-- TAJUK JAWI + RUMI BERGANDING -->
+            <div class="jawi-title">مجليس دعاء سلامت</div>
             <h1>Majlis Doa Selamat</h1>
             
             <p class="intro-text">
@@ -192,18 +179,9 @@
                 </div>
             </div>
 
-            <!-- BUTANG RSVP -->
-            <a href="https://forms.gle" target="_blank" class="btn btn-rsvp">Sahkan Kehadiran</a>
-
-            <!-- BUTANG LOKASI DENGAN LINK PINTAS BERSIH -->
-            <a href="https://goo.gl" target="_blank" class="btn btn-maps">Lokasi</a>
-
-            <!-- BUTANG WHATSAPP -->
-            <a href="https://wa.me" target="_blank" class="btn btn-whatsapp">Hubungi Tuan Rumah</a>
-
-            <div class="footer-note">
-                Terima Kasih
-            </div>
+            <!-- UNGKAPAN PENUTUP JAWI + RUMI -->
+            <div class="footer-note-jawi">جzaكم الله خيرا</div>
+            <div class="footer-note-rumi">(Jazakumullahu khair)</div>
         </div>
     </div>
 
@@ -231,6 +209,9 @@
             }
         }, 1000);
     </script>
+
+</body>
+</html>
 
 </body>
 </html>
