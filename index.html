@@ -115,19 +115,19 @@
             margin-top: 4px;
         }
 
-        /* Sistem Butang / Navigasi */
+        /* Sistem Butang / Navigasi - Dioptimumkan untuk Peranti Mudah Alih */
         .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
+            display: block;
             width: 100%;
             padding: 16px;
             margin-bottom: 12px;
             border-radius: 10px;
             font-size: 0.95rem;
-            font-weight: 500;
+            font-weight: 600;
             text-decoration: none;
+            text-align: center;
             transition: all 0.2s ease;
+            box-sizing: border-box;
         }
 
         .btn-rsvp {
@@ -138,7 +138,6 @@
 
         .btn-rsvp:hover {
             background-color: #B29020;
-            transform: translateY(-1px);
         }
 
         .btn-maps {
@@ -184,7 +183,7 @@
     <div class="card">
         <!-- RUANGAN POSTER GAMBAR KELUARGA/RUMAH -->
         <div class="card-image-box">
-            <img src="poster.jpg" alt="Poster Majlis Doa Selamat" onerror="this.style.display='none';">
+            <img src="poster.jpg" alt="Poster Majlis Doa Selamat">
         </div>
 
         <!-- MAKLUMAT JEMPUTAN INTERAKTIF -->
@@ -217,22 +216,22 @@
 
             <!-- BUTANG RSVP DENGAN LINK PINTAR GOOGLE FORM ANDA -->
             <a href="https://forms.gle" target="_blank" class="btn btn-rsvp">
-                ✍️ Sahkan Kehadiran
+                Sahkan Kehadiran
             </a>
 
             <!-- GOOGLE MAPS -->
             <a href="https://google.com" target="_blank" class="btn btn-maps">
-                📍 Navigasi Google Maps
+                Navigasi Google Maps
             </a>
 
             <!-- WAZE -->
             <a href="https://waze.com" target="_blank" class="btn btn-waze">
-                🚙 Navigasi Waze
+                Navigasi Waze
             </a>
 
             <!-- BUTANG WHATSAPP -->
             <a href="https://wa.me" target="_blank" class="btn btn-whatsapp">
-                💬 Hubungi Tuan Rumah
+                Hubungi Tuan Rumah
             </a>
 
             <div class="footer-note">
@@ -243,8 +242,8 @@
 
     <!-- LOGIK JAVASCRIPT COUNTDOWN -->
     <script>
-        // Sasaran tarikh: 8 November 2026
-        const targetDate = new Date("Nov 8, 2026 00:00:00").getTime(); 
+        // Menggunakan format ISO Date-Time yang stabil untuk mengelakkan isu pepijat pada iOS/Safari
+        const targetDate = new Date("2026-11-08T17:30:00").getTime(); 
 
         const runCountdown = setInterval(function() {
             const currentTime = new Date().getTime();
@@ -266,6 +265,9 @@
             }
         }, 1000);
     </script>
+
+</body>
+</html>
 
 </body>
 </html>
